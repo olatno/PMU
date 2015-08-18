@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="../../flexiblemain/htmlresources/style/static.css" rel="stylesheet" type="text/css" />
+		<!--<script type="text/javascript" src="../../flexiblemain/htmlresources/js/jquery-1.3.1.min.js"></script>-->
+		<script type="text/javascript" src="../../flexiblemain/htmlresources/js/slide.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		<script src="../../flexiblemain/htmlresources/js/jquery.coda-slider-3.0.min.js"></script>
+		<script>
+			$(function(){
+
+			/* Here is the slider using default settings */
+				$('#slider-id').codaSlider();
+			/* If you want to adjust the settings, you set an option
+				as follows:
+
+				$('#slider-id').codaSlider({
+				autoSlide:true,
+				autoHeight:false
+				});
+      
+			*/
+			});
+
+		</script> 
+	</head>
+	<body>
+		
+		<div class="contain">
+	
+			<div class="header">
+				<div class="main_logo">
+					<div class="icon_logo">
+						<img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0000_Vector-Smart-Object.png"  alt="flexible books icon"/>
+					</div>
+					<div class="logo_logo">
+						<img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0018_Flexiblebooks.png"  alt="flexible books logo"/>
+					</div>
+					<div class="customised">
+						<h1>Customised performance solutions</h1>
+					</div>
+				</div>
+				<div class="email_icon_text">
+					<div class="email_icon">
+						<img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0019_Layer-2.png"  alt="email contact us logo"/>
+					</div>
+					<div class="email_text">
+						<h1>info<span >@</span>flexiblebooks.com</h1>
+					</div>
+				</div>
+				<div class="dermacation">
+					<img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0015_Shape-1.png"  alt="email contact us logo"/>
+				</div>
+				<!--<div class="navmenu" id="menu_index">
+					<ul >
+						<li><a href="">HOME |</a></li>
+						<li><a href="">ABOUT US |</a></li>
+						<li><a href="">HOW WE CAN HELP |</a></li>
+						<li><a href="">CONTACT US |</a></li>
+						<li><a href="javascript: void(0)"  onclick="showLogin('hidden_pop')">CLIENT LOGIN </a></li>
+					</ul>
+				</div>-->
+				<div class="login_pop" id="hidden_pop">
+						<div class="close">
+							<img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0000_Cross.png"  alt="close login" onclick="hidePane('hidden_pop')"/>
+						</div>
+					<form action="/Login.do" method="post"> 
+						<div class="form_table">
+						
+							<input type="text" title="USER NAME" name="username" id="username"><br/>
+							
+							<input type="password" title="PASSWORD" name="password" id="password"> 
+						</div>
+						<div class="forgot_pass">
+							<a href="">Reminder?</a>
+						</div>
+						<div class="login_img">
+							
+							<input type="image" name="submit" src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0004_Login.png" alt="flexiblebooks login image"/>
+						</div>
+					</form> 
+
+				</div>
+			</div>
+
+			<div class="content">
+			<div class="navmenu" id="menu_index">
+					<ul >
+						<li><a href="/">HOME |</a></li>
+						<li><a href="/generic-client/appclient">ABOUT US |</a></li>
+						<li><a href="/generic-client/user-guide/">USER GUIDE |</a></li>
+						<li><a href="">CONTACT US |</a></li>
+						<li><a href="/">CLIENT LOGOUT</a></li>
+					</ul>
+				</div>
+				<div class="user_guide_content">
+				
+					<h3>Logging in to the FlexibleBooks Application</h3>
+					<div class="coda-slider"  id="slider-id">
+						 <div>
+								<h2 class="title">Step 1</h2>
+								<p>Please click www.flexiblebooks.com and enter your Business username/password.</p>
+						  </div>
+						  <div>
+								<h2 class="title">Step 2</h2>
+								<p>Now click the application link 'PMT', you will need to allow Java to run through the permission pop-up that will follow.</p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/security_warning.png"  alt="login security warning"/> </p>
+						  </div>
+						  <div>
+								<h2 class="title">Step 3</h2>
+								<p>Next you will be presented with the client login screen as below:</p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_login.png"  alt="application client longin interface"/> </p>
+								<p>Enter your username/password to complete the login (this will be unique for each individual in your organisation)</p>
+						  </div>
+						  <div>
+								<h3>Quick Reference: (Navigation/Layout)</h3>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_main.png"  alt="flexible books main interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Managing Quotes Step 1</h3>
+								<p>Open the 'New Quote' window to begin</p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_managingquote.png"  alt="flexible book image banner main interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 2 Now add general quote details</h3>
+								<p></p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_addquote.png"  alt="flexible book add general quote details interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 3 Add Contact Details</h3>
+								<p></p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_contact.png"  alt="flexible book contact interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 4 Add Quote Details</h3>
+								<p></p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quotebreak.png"  alt="flexible book quote break down interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 5 Save Quote</h3>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quoteback.png"  alt="message when no quote added interface"/> </p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quotepdf.png"  alt="message when no quote added interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 6 View New added project info</h3>
+								<p>Project Details from main Interface</p>
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_details.png"  alt="flexible book add general quote details interface"/> </p>
+						  </div>
+						  <div>
+								<h3>Step 7 Creating new invoice</h3>
+		
+								<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_invoice.png"  alt="flexible book contact interface"/> </p>
+						  </div>
+					</div>
+				</div>
+					<!--<div class="user_guide_content">
+				
+					<h3>Logging in to the FlexibleBooks Application</h3>
+					<ol start="1">
+						<li>
+							<p>Please click www.flexiblebooks.com and enter your Business username/password.</p>
+							
+						</li>
+						<li>
+							<p>Now click the application link 'PMT', you will need to allow Java to run through the permission pop-up that will follow.</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/security_warning.png"  alt="login security warning"/> </p>
+						</li>
+						<li>
+							<p>Next you will be presented with the client login screen as below:</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_login.png"  alt="application client longin interface"/> </p>
+							<p>Enter your username/password to complete the login (this will be unique for each individual in your organisation)</p>
+						</li>
+						</ol>
+						
+							<h3>Quick Reference: (Navigation/Layout)</h3>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_main.png"  alt="flexible books main interface"/> </p>
+							<h3>Managing Quotes</h3>
+						<ol start="1">
+						<li>
+							<p>Open the ‘New Quote’ window to begin</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_managingquote.png"  alt="flexible book image banner main interface"/> </p>
+						</li>
+						<li>
+							<p>Now add general quote details</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_addquote.png"  alt="flexible book add general quote details interface"/> </p>
+						</li>
+						<li>
+							<p>Add Contact Details</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_contact.png"  alt="flexible book contact interface"/> </p>
+						</li>
+						<li>
+							<p>Add Quote Details</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quotebreak.png"  alt="flexible book quote break down interface"/> </p>
+						</li>
+						<li>
+							<p>Save Quote</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quoteback.png"  alt="message when no quote added interface"/> </p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_quotepdf.png"  alt="message when no quote added interface"/> </p>
+						</li>
+						<li>
+							<p>Project Details from main Interface</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_details.png"  alt="flexible book add general quote details interface"/> </p>
+						</li>
+						<li>
+							<p>Creating new invoice</p>
+							<p><img src="../../flexiblemain/htmlresources/images/user-guide/user_guid_invoice.png"  alt="flexible book contact interface"/> </p>
+						</li>
+					</ol>
+				</div>
+				<!--<div class="login_pop" id="hidden_pop">
+						<div class="close">
+							<a href=""><img src="images/Flexiblebooks5_0000_Cross.png"  alt="close login" onclick="hidePane('hidden_pop')"/></a>
+						</div>
+					<form> 
+						<div class="form_table">
+						
+							<input type="text" title="USER NAME" name="username" id="username"><br/>
+							
+							<input type="password" title="PASSWORD" name="password" id="password"> 
+						</div>
+						<div class="forgot_pass">
+							<a href="">Reminder?</a>
+						</div>
+						<div class="login_img">
+							
+							<input type="image" name="submit" src="images/Flexiblebooks5_0004_Login.png" alt="flexiblebooks login image"/>
+						</div>
+					</form> 
+
+				</div>
+				<div class="banner">
+
+					<div class="banner_test_area">
+						<div class="contruction_text">
+							<h1>PAGE UNDER <span>CONSTRUCTION</span></h1> 
+						</div>
+						<div class="contruction">
+							<img src="images/Flexiblebooks5_0001_Vector-Smart-Object.png"  alt="under contruction image"/>
+						</div>
+					</div>
+					<div class="banner_area">
+						<img src="images/Flexiblebooks5_00004_Layer-1.png"  alt="flexible book image banner main interface"/>
+					</div>
+				</div>
+				<div class="info">
+				</div>
+		
+			</div>
+
+			<div class="footer">
+					<!--<div class="login_pop" id="hidden_pop">
+						<div class="close">
+							<img src="images/close.png"  alt="close login"/>
+						</div>
+					<form> 
+						<div class="form_table">
+							<label for="username">User Name:</label> 
+							<input type="text" name="username" id="username"><br/>
+							<label for="password">Password:</label> 
+							<input type="text" name="password" id="password1"> 
+						</div>
+						<div class="forgot_pass">
+							<a href="">I have forgoten my Password</a>
+						</div>
+						<div class="login_img">
+							
+							<input type="image" name="submit" src="images/Flexiblebooks5_0004_Login.png" alt="flexiblebooks login image"/>
+						</div>
+					</form> 
+
+				</div>
+			</div>
+		</div>
+			<!--<div align="center"><img src="../../flexiblemain/htmlresources/images/Flexiblebooks5_0020_Layer-1.png" class="bg"></div>-->
+	</body>
+</html>

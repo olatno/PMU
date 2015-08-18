@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not edit! last regenerated 2011-02-19 23:04 PST by ReplicatorSender -->
+<!DOCTYPE jnlp PUBLIC "-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN" "http://java.sun.com/dtd/JNLP-6.0.dtd">
+<!-- doctype points to Sun, not Oracle for compatibility. -->
+<!--<jnlp spec="6.0+" codebase="http://localhost:8080">-->
+<jnlp spec="6.0+" codebase="http://94.76.200.215:8080">
+  <information>
+    <title>Project Management System</title>
+
+    <vendor>flexiblebooks.com</vendor>
+    <!-- <homepage href="webstart/replicator.html" />-->
+
+    <description>Swing protool Web Start</description>
+    <!--<description kind="short">Replicates files via website.</description>
+    <description kind="one-line">Replicates files via website.</description>
+    <description kind="tooltip">the Replicator</description>-->
+    <!-- relative to codebase, need copy in same dir as jar, and jnlp file. 
+    <icon href="replicator.icon64.png" width="64" height="64" kind="default" />
+    <icon href="replicator.splash.png" width="128" height="128" kind="splash" />-->
+    <!-- online only -->
+    <!-- create desktop shortcut to run the Replicator 
+    <shortcut online="true">
+      <desktop />
+      <menu submenu="The Replicator" />
+    </shortcut>-->
+  </information>
+
+  <security>
+    <all-permissions />
+  </security>
+
+  <update check="always" policy="always" />
+
+  <resources> 
+    <!-- requires 1.6 -->
+    <!-- Sun JVM jdk1.6.0_23-->
+    <java version="1.6.0_23" href="http://java.sun.com/products/autodl/j2se" java-vm-args="-ea" initial-heap-size="128m" max-heap-size="512m" />
+    <java version="1.6+" href="http://java.sun.com/products/autodl/j2se" java-vm-args="-ea" initial-heap-size="128m" max-heap-size="512m" />
+    <!-- any vendor -->
+    <java version="1.6+" java-vm-args="-ea" initial-heap-size="128m" max-heap-size="512m" />
+
+    <!-- application code, download jar before we start.
+	<jar href="appclient/glassfish/modules/gf-client.jar" main="false" download="eager" size="20699"/>-->
+    <jar href="generic-client/pro-appls.jar" main="true" download="eager" size="102883"/>
+	<jar href="genericClients/ejb-interfaces.jar" main="false" download="eager" />
+	<jar href="images.jar" main="false" download="eager" />
+	<jar href="genericClients/resource/resources.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/auto-depends.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/common-util.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/config.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/config-api.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/config-types.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/connectors-internal-api.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/container-common.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/deployment-common.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/dol.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/ejb.security.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/ejb-container.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-api.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-asm.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-codegen.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-csiv2-idl.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-newtimer.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-omgapi.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-orb.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-corba-orbgeneric.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/glassfish-naming.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/gmbal.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/hk2-core.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/internal-api.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/javax.ejb.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/javax.jms.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/javax.resource.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/javax.servlet.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/javax.transaction.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/jta.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/kernel.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/management-api.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/orb-connector.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/orb-iiop.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/security.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/tiger-types-osgi.jar" main="false" download="eager" />
+	<jar href="genericClients/appclient/glassfish/modules/transaction-internal-api.jar" main="false" download="eager" />
+	<jar href="genericClients/pdfjar/pdf/itextpdf-5.3.2.jar" main="false" download="eager" />
+	<jar href="genericClients/pdfjar/pdf/itext-xtra-5.3.2.jar" main="false" download="lazy" />
+	
+    <!-- set -D system properties 
+    <property name="VIA" value="website" />
+    <property name="PROJECT_NAME" value="Mindprod.com" />
+    <property name="UNIQUE_PROJECT_NAME" value="com.mindprod.replicator" />
+    <property name="SUGGESTED_RECEIVER_BASE_DIR" value="C:\mindprod" />
+    <property name="SUGGESTED_RECEIVER_ZIP_STAGING_DIR" value="C:\mpstaging" />
+    <property name="WEBSITE_ZIP_URL" value="http://mindprod.com/replicator" />
+    <property name="SUGGESTED_LAN_ZIP_URL" value="http://mindprod.com/replicator" />
+    <property name="KEEP_ZIPS" value="false" />
+    <property name="UNPACK_ZIPS" value="true" />
+    <property name="AUTHENTICATION" value="none" />
+    <property name="DEBUGGING" value="true" />-->
+  </resources>
+
+  <!-- application class with main method -->
+  <!--<application-desc main-class="scr.protool.client.miscelleneous.ProtoolMainGUI"/>-->
+      <application-desc main-class="scr.protool.client.miscelleneous.UserLogIn"/>
+
+</jnlp>

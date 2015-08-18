@@ -1,0 +1,174 @@
+<project name="genericClientApp" default="deploy" basedir=".">
+    <description>
+        A simple build script.
+    </description>
+  <!-- set global properties for this build -->
+  <!-- change glassfish.home to point to appropriate location -->
+  <property name="glassfish.home" location="C:/glassfish3/glassfish"/>
+  <property name="itext.home" location="C:/Users/Ola/ProtooMD/pdfjar/pdf"/>
+   <property name="gfPassFile" location="C:\.adminpassword"/>
+  <property name="build" location="build"/>
+
+  <target name="init">
+    <!-- Create the build directory structure -->
+    <mkdir dir="${build}/pro-entities/META-INF"/>
+    <mkdir dir="${build}/ejb-interfaces"/>
+    <mkdir dir="${build}/pro-ejbs"/>
+    <mkdir dir="${build}/generic-client/WEB-INF/classes"/>
+    <mkdir dir="${build}/pro-appls"/>
+    <mkdir dir="${build}/lib"/>
+    <mkdir dir="${build}/META-INF"/>
+	<mkdir dir="${build}/user-guide"/>
+	<mkdir dir="${build}/META-INF/lib/gfhelper"/>
+  </target>
+
+  <target name="build-entities" depends="init" 
+        description="compile the entity beans and prepare a PU jar file." >
+    <javac classpath="${glassfish.home}/lib/javaee.jar"        
+           srcdir="./entities" 
+           destdir="${build}/pro-entities"/>
+    <copy file="./persistence.xml" todir="${build}/pro-entities/META-INF"/>
+    <jar destfile="${build}/pro-entities.jar" basedir="${build}/pro-entities"/>
+  </target>
+
+  <target name="build-ejb-interfaces" depends="build-entities" 
+        description="compile the ejb interface classes and prepare a jar file.">
+    <javac classpath="${glassfish.home}/lib/javaee.jar" 
+           srcdir="./ejbs" 
+           destdir="${build}/ejb-interfaces" 
+           includes="scr/protool/ejbprointer/*.java">
+      <classpath>
+        <pathelement location="${glassfish.home}/lib/javaee.jar"/>
+        <pathelement location="${build}/pro-entities.jar"/>
+      </classpath>
+    </javac>
+    <jar destfile="${build}/ejb-interfaces.jar" basedir="${build}/ejb-interfaces"/>
+	
+	<signjar jar="${build}/ejb-interfaces.jar"
+		keystore="./olatunji"
+		alias="ola"
+		storepass="popoola" />
+		<scp file="${build}/ejb-interfaces.jar" todir="${username}:${password}@94.76.200.215:/usr/local/glassfish/glassfish/domains/domain1/docroot/genericClients" trust="true"/>
+
+  </target>
+
+  <target name="build-ejbs" depends="build-ejb-interfaces"
+        description="compile the EJBs and prepare a jar file">
+    <javac srcdir="./ejbs"
+           destdir="${build}/pro-ejbs"
+           includes="scr/protool/ejbproimpl/*.java">
+      <classpath>
+        <pathelement location="${glassfish.home}/lib/javaee.jar"/>
+        <pathelement location="${build}/pro-entities.jar"/>
+        <pathelement location="${build}/ejb-interfaces.jar"/>
+      </classpath>
+    </javac>
+    <jar destfile="${build}/pro-ejbs.jar" basedir="${build}/pro-ejbs"/>
+	
+  </target>
+
+ <target name="build-appls" depends="build-ejbs"
+        description="compile the appls and prepare a jar file">
+    <javac srcdir="./pro-appls"
+           destdir="${build}/pro-appls">
+      <classpath>
+        <pathelement location="${glassfish.home}/lib/javaee.jar"/>
+		<pathelement location="${itext.home}/itextpdf-5.2.1.jar"/>
+        <pathelement location="${build}/pro-ejbs.jar"/>
+        <pathelement location="${build}/ejb-interfaces.jar"/>
+		<pathelement location="${build}/pro-entities.jar"/>
+      </classpath>
+    </javac>
+    <jar destfile="${build}/pro-appls.jar" basedir="${build}/pro-appls"/>
+				
+	<!--start font family process--> 
+   <!--<jar destfile="${build}/resources.jar" >
+		<fileset dir="./resources" />
+	</jar>
+	
+	<signjar jar="${build}/resources.jar"
+		keystore="./olatunji"
+		alias="ola"
+		storepass="popoola" />
+	<scp file="${build}/resources.jar" todir="${username}:${password}@94.76.200.215:/usr/local/glassfish/glassfish/domains/domain1/docroot/genericClients/resource" trust="true"/>-->
+		<!--end font family process -->
+		
+	<!--start pdf process -->
+	<!--<signjar jar="${itext.home}/*.jar"
+		keystore="./olatunji"
+		alias="ola"
+		storepass="popoola" />
+	<scp todir="${username}:${password}@94.76.200.215:/usr/local/glassfish/glassfish/domains/domain1/docroot/genericClients/pdfjar/pdf" trust="true">
+		<fileset dir="${itext.home}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</scp>-->
+	
+	<!--end pdf process -->
+	
+	<!-- start glassfish client -->
+	<!--<signjar jar="${glassfish.home}/domains/domain1/docroot/appclient/glassfish/modules/*.jar"
+		keystore="./olatunji"
+		alias="ola"
+		storepass="popoola" />
+	<scp todir="${username}:${password}@94.76.200.215:/usr/local/glassfish/glassfish/domains/domain1/docroot/genericClients/appclient/glassfish/modules" trust="true">
+		<fileset dir="${glassfish.home}/domains/domain1/docroot/appclient/glassfish/modules">
+			<include name="**/*.jar"/>
+		</fileset>
+	</scp>-->
+	
+	<!-- end glassfish client -->
+	
+	<signjar jar="${build}/pro-appls.jar"
+		keystore="./olatunji"
+		alias="ola"
+		storepass="popoola" />
+ </target> 
+
+ <target name="build-web-app" depends="build-appls"
+        description="compile the servlets and prepare a war file">
+    <javac srcdir="./generic" 
+           destdir="${build}/generic-client/WEB-INF/classes"
+		   includes="com/flex/applicationservlet/*.java">
+      <classpath>
+        <pathelement location="${glassfish.home}/lib/javaee.jar"/>
+        <pathelement location="${build}/ejb-interfaces.jar"/>
+        <pathelement location="${build}/pro-appls.jar"/>
+		 <pathelement location="${build}/pro-ejbs.jar"/>
+      </classpath>
+    </javac>
+    <copy file="./web.xml" todir="${build}/generic-client/WEB-INF"/>
+	<copy file="./user-guide/index.html" todir="${build}/generic-client/user-guide"/>
+    <copy file="./appclient.html" todir="${build}/generic-client"/>
+	<copy file="./flexible.jnlp" todir="${build}/generic-client"/>
+	<copy file="${build}/pro-appls.jar" todir="${build}/generic-client"/>
+   <jar destfile="${build}/generic/generic-client.war" basedir="${build}/generic-client"
+	includes="WEB-INF/classes/com/flex/applicationservlet/*.class *.html WEB-INF/web.xml user-guide/*.html pro-appls.jar flexible.jnlp"/>
+  </target>
+
+  <target name="build" depends="build-web-app" 
+          description="build the application">
+    <copy file="${build}/pro-entities.jar" todir="${build}/lib"/>
+    <copy file="${build}/ejb-interfaces.jar" todir="${build}/lib"/>
+    <copy file="${build}/generic/generic-client.war" todir="${build}"/>
+    <jar destfile="${build}/genericClientApp.ear" basedir="${build}"
+         includes="lib/*.jar pro-ejbs.jar generic-client.war "/>
+		  
+   <copy file="${build}/genericClientApp.ear" todir="C:/"/>
+   
+
+  </target>
+
+
+  <target name="deploy" depends="build" description="deploys application to glassfish">     
+	
+		<exec executable="${glassfish.home}/bin/asadmin" failonerror="true" vmlauncher="false">
+			<arg line="deploy --user admin --passwordfile ${glassfish.home}/password.txt --host 94.76.200.215 --dropandcreatetables false --force ${build}/genericClientApp.ear"  />          
+
+			</exec>
+	<delete dir="./build"/>
+	
+
+  </target>
+
+</project>
